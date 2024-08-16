@@ -1,15 +1,12 @@
 ---
-import { Image } from 'astro:assets';
-import heroImage from '../images/hero-img.png';
-import errorCostImage from '../images/error-cost-img.svg';
-import first from '../images/first.png';
-import second from '../images/second.png';
-import third from '../images/third.png';
-import SectionHeader from '../components/SectionHeader.astro';
-import Sample from '../components/Sample';
-import Team from '../components/Team.astro';
-import Contact from '../components/Contact';
-import safeRx from '../images/safeRX.svg';
+import ProfessionalIcon from "../images/Vector.png" 
+import PatientIcon from "../images/Vector-2.png" 
+import PublicIcon from "../images/Vector-3.png" 
+
+import GIT_section from "../images/GIT-section.png"
+
+import Frame from "../images/Frame.png"
+
 
 const navItems = [
   {
@@ -30,28 +27,30 @@ const navItems = [
   },
 ];
 
-const heroSection = {
-  title: 'Redefining Healthcare with AI',
-  description:
-    'Harnessing the latest in AI and NLP to reduce prescription errors and improve patient safety. Our platform analyzes prescriptions with unrivaled accuracy, catching potential mistakes before they reach the patient.',
-  img: heroImage,
-};
-
-const steps = [
+const services=[
   {
-    img: first,
-    title: 'ML system considering all types of records',
-  },
-
-  {
-    img: second,
-    title: 'More accurate alerts',
+    title :"Professional",
+    description: "We reduce workload and leverage information resource, increasing the effectiveness of the diagnosis process.",
+    background_color: "#FB7185",
+    icon: ProfessionalIcon.src,
   },
   {
-    img: third,
-    title: 'Better patient outcomes',
+    title :"Patients",
+    description: "We reduce workload and leverage information resource, increasing the effectiveness of the diagnosis process.",
+    background_color: "#FB7185",
+    icon: PatientIcon.src,
+
+  },
+  {
+    title :"Public Sector",
+    description: "We reduce workload and leverage information resource, increasing the effectiveness of the diagnosis process.",
+    background_color: "#FB7185",
+    icon: PublicIcon.src,
+
   },
 ];
+
+
 ---
 
 <!doctype html>
@@ -67,213 +66,315 @@ const steps = [
       content='Significantly reduce prescription errors with the power of AI and large language models.'
     />
   </head>
-  <body class='bg-bgPrimary text-textCopy font-light'>
-    <header class='h-screen relative'>
-      <div
-        class='flex flex-col gap-1 fixed top-6 left-6 mobile-nav-btn z-50 md:hidden'
-      >
-        <div class='w-9 h-1 bg-gray-600'></div>
-        <div class='w-9 h-1 bg-gray-600'></div>
-        <div class='w-9 h-1 bg-gray-600'></div>
+  <body>
+    <section class="relative flex items-center justify-center h-screen bg-slate-50">
+      <!-- Main Content -->
+      <div class="relative z-10 text-center h-5/6 w-5/6">
+        <h1 class="text-7xl md:text-9xl font-extrabold text-gray-900 leading-tight">
+          <div class="absolute left-5 top-20">Health<span class="text-blue-600">.</span></div><br>
+          <div class="absolute inset-96 top-96">Meets<span class="text-blue-600">.</span></div><br>
+          <div class="absolute right-20 bottom-20">ML+AI<span class="text-blue-600">.</span></div>
+        </h1>
       </div>
-      <nav
-        class='container mx-auto flex md:justify-between items-center py-12 px-12 md:px-6 md:relative fixed top-0 left-0 md:bg-transparent bg-white h-screen md:h-auto w-4/5 md:w-auto md:flex-row flex-col justify-start z-40 md:gap-0 gap-8 -translate-x-full md:translate-x-0 nav-bar transition-transform'
-      >
-        <a class='font-bold text-3xl text-blue-600' href='/'>SafeRX</a>
-        <ul class='flex justify-end items-center gap-8 md:flex-row flex-col'>
-          {
-            navItems.map(({ name, path }) => {
-              return (
-                <li class='menu-item'>
-                  <a href={path}>{name}</a>
-                </li>
-              );
-            })
-          }
-          <li>
-            <a
-              href='/#contact'
-              class='bg-primary px-6 py-3 rounded-full text-white menu-item'
-              >Contact us</a
-            >
-          </li>
-        </ul>
-      </nav>
-      <div
-        class='absolute bottom-0 grid grid-cols-12 h-[90vh] sm:h-auto 2xl:max-w-[1440px] 2xl:w-full 2xl:-translate-x-1/2 2xl:left-1/2'
-      >
-        <div
-          class='col-span-full lg:col-span-4 lg:col-start-2 xl:col-start-2 xl:col-span-5 2xl:col-start-1 2xl:col-span-6 flex flex-col justify-end items-center px-2 gap-3 2xl:gap-6 2xl:mt-10 sm:mb-10 md:px-12 lg:items-start lg:justify-start xl:-translate-y-28'
-        >
-          <h1
-            class='xl:text-7xl font-bold text-primary lg:text-6xl text-3xl sm:text-5xl text-center lg:text-left'
-          >
-            {heroSection.title}
-          </h1>
-          <p class='lg:text-lg text-gray-600 text-center lg:text-left'>
-            {heroSection.description}
-          </p>
-          <a
-            class='bg-primary px-6 py-3 rounded-full text-white'
-            href='/#contact'>Discover more</a
-          >
-        </div>
-        <Image
-          src={heroSection.img}
-          alt='Redefining Healthcare with AI'
-          widths={[240, 400, 600, 800]}
-          class='h-auto object-contain max-h-[60vh] lg:max-h-[75vh] col-span-full lg:col-start-6 self-end xl:col-start-7 sm:col-start-2 sm:col-span-10 md:col-span-full 2xl:col-start-7'
-        />
-      </div>
-    </header>
-
-    <section class='bg-white lg:py-40 px-4 md:px-10 lg:px-0 py-20' id='why'>
-      <div
-        class='max-w-7xl mx-auto grid grid-cols-2 gap-y-16 lg:gap-y-8 gap-x-8'
-      >
-        <div class='lg:col-start-2 col-span-full lg:col-span-1 self-center'>
-          <h2 class='md:text-5xl text-4xl font-bold text-primary mb-8'>
-            The Cost of Errors
-          </h2>
-          <p class='mb-8'>
-            Prescription errors can lead to serious consequences for patients
-            and providers. Mistakes in dosage, drug interactions, or incorrect
-            medications can result in hospital readmissions, adverse effects, or
-            even life-threatening situations.
-          </p>
-          <div class='grid grid-cols-2 gap-y-6 xl:gap-x-0 gap-x-8'>
-            <div>
-              <h6
-                class='text-primary text-3xl md:text-4xl font-bold capitalize'
-              >
-                9000
-              </h6>
-              <p>prescription-related deaths/year</p>
+    
+      <!-- Button at Bottom Right -->
+      <div class="absolute bottom-4 right-10 z-20">
+        <button class="flex items-center bg-slate-100 text-gray-700 font-semibold px-6 py-2 rounded-2xl
+         shadow-lg hover:shadow-xl transition duration-300">
+          <img src="src/images/trusedIcon.png" alt="Trusted Icon" class="w-12 h-12 mr-3">
+          <div class="flex items-center justify-end gap-5">
+            <div class="flex flex-col items-start">
+              <span>Trusted by</span>
+              <span>2,000+</span>
             </div>
-
-            <div>
-              <h6
-                class='text-primary text-3xl md:text-4xl font-bold capitalize'
-              >
-                1.5 MILLION
-              </h6>
-              <p>Suffering injuries & adverse affects</p>
-            </div>
-
-            <div>
-              <h6
-                class='text-primary text-3xl md:text-4xl font-bold capitalize'
-              >
-                $42 BILLION
-              </h6>
-              <p>Annual cost to the system</p>
-            </div>
+            <img src="src/images/arrowUpRight.png" alt="Arrow Icon" class="w-5 h-5">
           </div>
-        </div>
-        <Image
-          src={errorCostImage}
-          alt='The Cost of Errors'
-          class='lg:col-start-1 col-span-full lg:col-span-1 lg:row-start-1 self-center md:max-w-[80%] max-w-full lg:max-w-full justify-self-center'
-        />
+        </button>
+
       </div>
     </section>
 
-    <section class='bg-bgPrimary lg:py-32 px-4 md:px-10 2xl:px-0 py-20'>
-      <div class='container mx-auto'>
-        <SectionHeader>How we're making a difference</SectionHeader>
-        <p class='max-w-5xl mb-16'>
-          Our AI platform is designed to enhance the prescription review
-          process, providing valuable insights to pharmacists and healthcare
-          professionals. By leveraging advanced NLP and machine learning
-          algorithms, we're able to identify potential errors and issues within
-          prescriptions, allowing for timely interventions and corrections.
-        </p>
-        <div
-          class='flex md:justify-between md:items-start md:max-w-5xl mx-auto md:flex-row flex-col items-center justify-start gap-8 max-w-sm'
-        >
-          {
-            steps.map(({ img, title }, index) => (
-              <div class='flex flex-col items-center gap-2 flex-1'>
-                <div class='w-12 h-12 bg-primary text-white border-blue-200 border-4 rounded-full flex items-center justify-center font-bold text-xl'>
-                  {index + 1}
-                </div>
-                <Image
-                  src={img}
-                  alt={title}
-                  class='lg:h-64 md:w-auto md:h-48 w-36 h-auto'
-                />
-                <p class='text-center font-bold text-xl'>{title}</p>
-              </div>
-            ))
-          }
-        </div>
-      </div>
-    </section>
-
-    <section class='bg-white lg:py-32 px-4 md:px-10 2xl:px-0 py-20 text-center'>
-      <div class='max-w-4xl mx-auto'>
-        <SectionHeader> Transforming Healthcare with AI </SectionHeader>
-        <p>
-          Our platform is at the forefront of innovation, utilizing cutting-edge
-          AI and NLP technologies to address the challenges of prescription
-          accuracy. We're committed to improving patient outcomes and reducing
-          the burden on healthcare providers through the seamless integration of
-          intelligent automation and data-driven insights.
-        </p>
-      </div>
-    </section>
-
-    <section
-      class='bg-bgPrimary lg:py-32 px-4 md:px-10 2xl:px-0 py-20'
-      id='sample'
-    >
-      <div class='container mx-auto'>
-        <SectionHeader>Sample</SectionHeader>
-        <Sample client:visible />
-      </div>
-    </section>
-
-    <Team />
-
-    <section
-      class='bg-bgPrimary lg:py-32 px-4 md:px-10 2xl:px-0 py-20'
-      id='contact'
-    >
-      <div class='container mx-auto'>
-        <SectionHeader>Contact us</SectionHeader>
-        <p>
-          Have a question? Send us a message and we'll get back to you as soon
-          as possible.
-        </p>
-
-        <Contact client:visible />
-      </div>
-    </section>
-
-    <section class='bg-white lg:py-32 px-4 md:px-10 2xl:px-0 py-20' id='footer'>
-      <div class='container mx-auto'>
-        <div class='grid grid-cols-3'>
-          <div>
-            <h6 class='text-primary font-bold'>Address</h6>
-            <p>4008 Murray Ave</p>
-            <p>Pittsburgh, PA, 15217</p>
-          </div>
-          <div>
-            <h6 class='text-primary font-bold'>Get In Touch</h6>
-            <p>Email: admin@viai.io</p>
-            <p>Phone Number: +1 (541) 908 9436</p>
-          </div>
-          <div></div>
-        </div>
+    <!--services -->
+    <section class="py-12 container mx-auto h-screen">
+      <div class="flex justify-between">
         <div>
-          <h6 class='mt-8'>
-            SafeRX / Venera AI | VIAI | All rights reserved. 2024
-          </h6>
+          <h6 class="font-bold text-lg"> Our Commitment</h6>
+          <p class="font-bold text-4xl">Who We Serve</p>
+        </div>
+        <p class="w-[684px]">We're committed to improving patient outcomes and reducing the burden on healthcare providers through the seamless integration of intelligent automation and data-driven insights.</p>
+      </div>
+      <div class="flex justify-between gap-8">
+        {services.map(el => {
+          return (
+            <div class="flex-1 bg-blue-100 rounded-lg">
+              <div class={`flex justify-center bg-[${el.background_color}]`}>
+                <img
+                  src={el.icon}/>
+              </div>
+              <p class="font-bold">{el.title}</p>
+              <p>{el.description}</p>
+            </div>
+          )
+       })}
+       
+      </div>
+    </section>
+
+    <!--features -->
+    <section class="bg-slate-50 py-16 mt-10 lg:mt-40">
+      <div class="sm:w-3/4 lg:w-5/12 mx-auto px-2">
+        <h1 class="font-extrabold text-4xl text-center">Our Core Features</h1>
+      </div>
+
+      <div class="relative mt-16 lg:mt-20">
+        <div class="container flex flex-col lg:flex-row items-center justify-center gap-x-12">
+          <div class="flex flex-1 justify-center z-10 mb-8 lg:mb-0">
+            <img
+              class="w-auto h-auto max-w-[500px] max-h-[500px]"
+              src="src/images/Frame.png"
+              alt="Medical Dashboard"
+            />
+          </div>
+          <div class="flex flex-1 flex-col items-center lg:items-start text-center lg:text-left">
+            <h1 class="text-3xl text-black font-bold lg:mb-4">Medical AI Dashboard</h1>
+            <p class="text-gray-500 my-4 text-center lg:text-left sm:w-3/4 lg:w-full text-xl lg:mb-4">Web application to automate medical data processing and medical insights extracting.</p>
+            <ul class="text-black my-4 text-center lg:text-left sm:w-3/4 lg:w-full text-xl font-semibold space-y-2 lg:space-y-4">
+              <li>Insights Visualizer</li>
+              <li>Diagnosis Recommender</li>
+              <li>Visual Medical Assistant</li>
+              <li>Database Manager</li>
+            </ul>
+            <button type="button" class="bg-blue-600 text-white rounded-2xl px-6 py-4 hover:bg-blue-700 font-extrabold flex items-center space-x-3 text-xl lg:mt-4">
+              <span>Download</span>
+              <img src="src/images/Solid download.png" alt="Download Icon" class="h-6 w-6">
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="relative mt-20 lg:mt-52">
+        <div class="container flex flex-col lg:flex-row-reverse items-center justify-center gap-x-12">
+          <div class="flex flex-1 justify-center z-10 mb-10 lg:mb-0">
+            <img
+              class="w-auto h-auto max-w-[500px] max-h-[500px]"
+              src="src/images/Frame-2.png"
+              alt="Electronic Health Companion"
+            />
+          </div>
+          <div class="flex flex-1 flex-col items-center lg:items-start">
+            <h1 class="text-3xl text-black font-bold lg:mb-4">Electronic Health Companion</h1>
+            <p class="text-gray-500 my-4 text-center lg:text-left sm:w-3/4 lg:w-full text-xl lg:mb-4">Mobile application to standardize and manage your electronic health record and personalize healthcare experience.</p>
+            <button type="button" class="bg-blue-600 text-white rounded-2xl px-6 py-4 hover:bg-blue-700 font-extrabold flex items-center space-x-3 text-xl lg:mt-4">
+              <span>Download App</span>
+              <img src="src/images/Solid download.png" alt="Download Icon" class="h-6 w-6">
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="relative mt-20 lg:mt-52">
+        <div class="container flex flex-col lg:flex-row items-center justify-center gap-x-12">
+          <div class="flex flex-1 justify-center z-10 mb-10 lg:mb-0">
+            <img
+              class="w-auto h-auto max-w-[500px] max-h-[500px]"
+              src="src/images/Frame-3.png"
+              alt="Public Health Monitor"
+            />
+          </div>
+          <div class="flex flex-1 flex-col items-center lg:items-start">
+            <h1 class="text-3xl text-black font-bold lg:mb-4">Public Health Monitor</h1>
+            <p class="text-gray-500 my-4 text-center lg:text-left sm:w-3/4 lg:w-full text-xl lg:mb-4">Command center dashboard to detect anomalies and track down root cause.</p>
+
+            <div class="w-[20rem] md:w-[30rem] lg:w-[35rem] xl:w-[43rem]">
+              <div class="flex justify-between mb-1">
+                <span class="text-sm font-semibold text-black">Accuracy</span>
+                <span class="text-sm font-semibold text-black">99.487%</span>
+              </div>
+              <div class="rounded-sm bg-blue-100/60">
+                <div class="bg-blue-600 h-2 md:h-3 rounded-sm w-[80%] md:w-[90%]"></div>
+              </div>
+            </div>
+            
+            <button type="button" class="bg-blue-600 text-white rounded-2xl px-6 py-4 hover:bg-blue-700 font-extrabold flex items-center space-x-3 text-xl lg:mt-4">
+              <span>See Details</span>
+              <img src="src/images/Solid arrow right md.png" alt="Solid arrow right" class="h-6 w-6">
+            </button>
+          </div>
         </div>
       </div>
     </section>
-  </body>
 
+    <section class="relative flex items-center justify-center min-h-screen bg-white">
+      <!-- Background Image -->
+      <div class="absolute inset-y-0 right-0 w-1/2 bg-no-repeat bg-right bg-cover bg-transparent"
+        style="background-image: url('src/images/GetInTouch_Icons/BgImg.svg');">
+      </div>
+
+      <!-- Content -->
+      <div class="relative z-10 max-w-4xl mx-auto px-8 md:px-0">
+        <div class="md:w-1/2">
+          <h1 class="text-4xl font-bold text-gray-900 mb-4">Get In Touch</h1>
+          <p class="text-gray-600 mb-8">Send us a message and we'll get back to you as soon as possible.</p>
+            
+          <div class="flex items-start space-x-8 mb-8">
+            <div class="flex items-center space-x-2">
+              <span class="text-blue-600">
+                <!-- Replace with location SVG icon -->
+                <svg class="w-6 h-6" xmlns="src/images/GetInTouch_Icons/AddressIcon.svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"></svg>
+              </span>
+              <div>
+                <h4 class="text-gray-900 font-semibold">Our Address</h4>
+                <p class="text-gray-600">4008 Murray Ave, Pittsburgh, PA</p>
+              </div>
+            </div>
+
+            <div class="flex items-center space-x-2">
+              <span class="text-blue-600">
+                <!-- Replace with phone SVG icon -->
+                <svg class="w-6 h-6" xmlns="src/images/GetInTouch_Icons/PhoneIcon.svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"></svg>
+              </span>
+              <div>
+                <h4 class="text-gray-900 font-semibold">Our Contact Info</h4>
+                <p class="text-gray-600">+1 (541) 908 9436<br>admin@viai.io</p>
+              </div>
+            </div>
+        
+          </div>
+          <!-- Button -->
+          <a href="#" class="inline-block px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+            Or Fill the Form Below <span class="ml-2">↓</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Request a demo -->
+    <section class="relative min-h-screen flex flex-col items-center justify-center bg-slate-50">
+      <h1 class="text-6xl font-bold text-center mb-6">Request a <span class="text-blue-600">Demo</span></h1>
+      <div class="w-full max-w-5xl p-8 bg-slate-50 rounded-lg shadow-lg">
+        <form class="space-y-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Full Name -->
+            <div>
+              <label for="full-name" class="block text-sm font-medium text-gray-700">Full Name*</label>
+              <div class="relative mt-1">
+                <input type="text" id="full-name" name="full-name" placeholder="Enter your full name" class="w-full px-10 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
+                <span class="absolute inset-y-0 left-0 flex items-center pl-3">
+                  <img src="src/images/Monotone gender male.png" alt="User Icon" class="w-5 h-5 text-gray-400">
+                </span>
+              </div>
+            </div>
+
+            <!-- Job Position -->
+            <div>
+              <label for="job-position" class="block text-sm font-medium text-gray-700">Job Position*</label>
+              <div class="relative mt-1">
+                <input type="text" id="job-position" name="job-position" placeholder="Enter your job position..." class="w-full px-10 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
+                <span class="absolute inset-y-0 left-0 flex items-center pl-3">
+                  <img src="src/images/work.png" alt="User Icon" class="w-5 h-5 text-gray-400">
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Email Address -->
+            <div>
+              <label for="email-address" class="block text-sm font-medium text-gray-700">Email Address*</label>
+              <div class="relative mt-1">
+                <input type="email" id="email-address" name="email-address" placeholder="Enter your email address..." class="w-full px-10 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
+                <span class="absolute inset-y-0 left-0 flex items-center pl-3">
+                  <img src="src/images/email.png" alt="Email Icon" class="w-5 h-5 text-gray-400">
+                </span>
+              </div>
+            </div>
+          
+            <!-- Phone Number -->
+            <div>
+              <label for="phone-number" class="block text-sm font-medium text-gray-700">Phone Number*</label>
+              <div class="relative mt-1">
+                <input type="text" id="phone-number" name="phone-number" placeholder="Enter your phone number..." class="w-full px-10 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
+                <span class="absolute inset-y-0 left-0 flex items-center pl-3">
+                  <img src="src/images/phone.png" alt="Phone Icon" class="w-5 h-5 text-gray-400">
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Message -->
+          <div>
+            <label for="message" class="block text-sm font-medium text-gray-700">Message*</label>
+            <textarea id="message" name="message" rows="4" placeholder="Please enter your detailed description here, and be as clear as possible!" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"></textarea>
+            <div class="text-right text-gray-500 text-xs mt-1">300/300</div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+            <!-- Terms and Conditions -->
+            <div class="flex items-center">
+              <input id="terms" name="terms" type="checkbox" class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+              <label for="terms" class="ml-2 block text-sm text-gray-900">
+                I have agreed to the Terms & Conditions
+              </label>
+            </div>
+      
+            <!-- Submit Button -->
+            <div class="flex justify-end">
+              <button type="submit" class="flex items-center justify-center px-6 py-4 bg-blue-600 text-white font-extrabold rounded-2xl hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                Submit Form
+                <img src="src/images/tick.png" alt="Submit Icon" class="w-5 h-5 ml-2">
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <footer class="bg-gray-900 text-white py-8">
+      <div class="container mx-auto text-center">
+        <!-- Logo and Slogan -->
+        <div class="mb-10">
+          <div class="flex justify-center items-center mb-4">
+            <img src="src/images/Footer_Icons/Logo Brand Square.svg" alt="Logo" class="w-10 h-10" />
+          </div>
+          <p class="text-md font-light">Revolutionizing The Personalized Health Industry through the power of AI Technology and Machine Learning.</p>
+        </div>
+  
+        <!-- Navigation Links -->
+        <div class="mb-10">
+            <ul class="flex justify-center space-x-8">
+                <li><a href="#" class="hover:text-gray-400">Homepage</a></li>
+                <li><a href="#" class="hover:text-gray-400">Platform</a></li>
+                <li><a href="#" class="hover:text-gray-400">About Us</a></li>
+                <li><a href="#" class="hover:text-gray-400">Contact Us</a></li>
+            </ul>
+        </div>
+  
+        <!-- Social Media Icons -->
+        <div class="mb-10">
+          <ul class="flex justify-center space-x-4">
+            <li><a href="#"><img src="src/images/Footer_Icons/FacebookIcon.svg" alt="Facebook" class="w-6 h-6" /></a></li>
+            <li><a href="#"><img src="src/images/Footer_Icons/YoutubeIcon.svg" alt="YouTube" class="w-6 h-6" /></a></li>
+            <li><a href="#"><img src="src/images/Footer_Icons/InstagramIcon.svg" alt="Instagram" class="w-6 h-6" /></a></li>
+            <li><a href="#"><img src="src/images/Footer_Icons/LinkInIcon.svg" alt="LinkedIn" class="w-6 h-6" /></a></li>
+          </ul>
+        </div>
+  
+        <!-- Legal Links -->
+        <div class="text-sm text-gray-400">
+          <ul class="flex justify-center space-x-2 mt-2">
+            <li>© 2024 SAFERX / VENERA AI | VIAI</a></li>
+            <li>&bull;</li>
+            <li><a href="#" class="hover:text-gray-200">Privacy Policy</a></li>
+            <li>&bull;</li>
+            <li><a href="#" class="hover:text-gray-200">Terms & Conditions</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+      
+
+  </body>
   <style is:global>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
   </style>
